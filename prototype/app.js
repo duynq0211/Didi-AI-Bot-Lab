@@ -198,7 +198,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.hideMentionHint = function() {
         const overlay = document.getElementById('chat-dark-overlay');
-        if(overlay) overlay.style.opacity = '0';
+        if(overlay) {
+            overlay.style.opacity = '0';
+            setTimeout(() => { if(overlay.style.opacity === '0') overlay.style.display = 'none'; }, 300);
+        }
         const atBtn = document.querySelector('.fa-at');
         if(atBtn) {
             atBtn.style.zIndex = '';
