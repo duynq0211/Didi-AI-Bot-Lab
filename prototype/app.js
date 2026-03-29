@@ -273,6 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function handleSend() {
+        hideMentionHint();
         const textContent = chatInputBox.innerText.trim();
         let htmlContent = chatInputBox.innerHTML.trim();
         if (!textContent) return;
