@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="msg-content bot-content">
                         <span class="msg-sender-name text-aegis">cíu cíu</span>
                         
-                        <div class="bubble bubble-other" style="padding: 12px 16px; min-width: 260px;">
+                        <div class="bubble bubble-other" style="padding: 12px 16px;">
                             <b>CHẨN ĐOÁN HÀNH VI: THAO TÚNG TÂM LÝ & ĐÓNG VAI NẠN NHÂN</b><br><br>
                             Phân tích ngôn ngữ cho thấy: Đối tượng đang thực hiện thao túng tâm lý bằng đòn <b>Đảo ngược Nạn nhân</b>. Cố tình lờ đi thiện chí trước đó, và tập trung vào việc đe dọa Pháp lý để khống chế cục diện.<br><br>
                             <b>ĐỀ XUẤT 3 HƯỚNG XỬ LÝ:</b><br>
@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                                 <img src="https://ui-avatars.com/api/?name=Ciu&background=0068ff&color=fff" alt="" class="msg-avatar">
                                                 <div class="msg-content bot-content">
                                                     <span class="msg-sender-name text-aegis">cíu cíu</span>
-                                                    <div class="bubble bubble-other" style="padding: 12px 16px; min-width: 260px;">
+                                                    <div class="bubble bubble-other" style="padding: 12px 16px;">
                                                         [Didi AI Bot Lab] Đã tổng hợp: <b>Hội Đồng chốt hạ Phương án B+.</b><br><br>
                                                         <span class="mention-tag" style="padding: 0 4px;">@Chị Hạnh (Duyên's sis)</span> chị copy tin nhắn trong khung xám dưới đây để gởi thẳng đối tượng nhé:<br><br>
                                                         <div style="background: #f1f5f9; padding: 10px; border-left: 3px solid #0068ff; margin: 8px 0; font-family: monospace;">
