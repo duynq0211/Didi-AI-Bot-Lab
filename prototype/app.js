@@ -141,6 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         setTimeout(() => {
                             const bubble = msgThuc.querySelector('.bubble');
                             if(bubble) bubble.insertAdjacentHTML('beforeend', '<div class="zalo-reaction fade-in-up"><span>❤️👍</span> <span>8</span></div>');
+                            
+                            // START INTERACTIVE WAIT
+                            setTimeout(() => {
+                                showMentionHint();
+                            }, 1000);
                         }, 1200);
 
                     }, 4000);
@@ -155,7 +160,85 @@ document.addEventListener('DOMContentLoaded', () => {
     const mentionMenu = document.getElementById('mention-menu');
     let mentionActive = false;
 
+    window.showMentionHint = function() {
+        let overlay = document.getElementById('chat-dark-overlay');
+        if(!overlay) {
+            overlay = document.createElement('div');
+            overlay.id = 'chat-dark-overlay';
+            overlay.style.cssText = 'position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index: 15; pointer-events:none; transition: opacity 0.3s;';
+            document.querySelector('.zalo-main-chat').style.position = 'relative';
+            document.querySelector('.zalo-main-chat').appendChild(overlay);
+        }
+        overlay.style.opacity = '1';
+
+        const atBtn = document.querySelector('.fa-at');
+        atBtn.style.position = 'relative';
+        atBtn.style.zIndex = '16';
+        atBtn.style.background = '#fff';
+        atBtn.style.borderRadius = '50%';
+        atBtn.style.width = '30px';
+        atBtn.style.height = '30px';
+        atBtn.style.lineHeight = '30px';
+        atBtn.style.textAlign = 'center';
+        atBtn.style.boxShadow = '0 0 0 4px #fff, 0 0 0 10px rgba(0,104,255,0.3)';
+        atBtn.style.animation = 'pulse 1.5s infinite';
+        
+        let hint = document.getElementById('mention-tooltip');
+        if(!hint) {
+            hint = document.createElement('div');
+            hint.id = 'mention-tooltip';
+            hint.innerHTML = 'Bấm vào đây <i class="fa-solid fa-hand-pointer fa-bounce"></i>';
+            hint.style.cssText = 'position: absolute; bottom: 45px; transform: translateX(-50%); background: #0068ff; color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; white-space: nowrap; pointer-events: none; z-index: 16; box-shadow: 0 4px 6px rgba(0,0,0,0.1);';
+            hint.innerHTML += '<div style="position:absolute; bottom:-5px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:6px solid #0068ff;"></div>';
+            atBtn.parentElement.style.position = 'relative';
+            atBtn.parentElement.appendChild(hint);
+        }
+        hint.style.left = (atBtn.offsetLeft + 15) + 'px';
+    };
+
+    window.hideMentionHint = function() {
+        const overlay = document.getElementById('chat-dark-overlay');
+        if(overlay) overlay.style.opacity = '0';
+        const atBtn = document.querySelector('.fa-at');
+        if(atBtn) {
+            atBtn.style.zIndex = '';
+            atBtn.style.background = '';
+            atBtn.style.borderRadius = '';
+            atBtn.style.width = '';
+            atBtn.style.height = '';
+            atBtn.style.lineHeight = '';
+            atBtn.style.textAlign = '';
+            atBtn.style.boxShadow = '';
+            atBtn.style.animation = '';
+        }
+        const hint = document.getElementById('mention-tooltip');
+        if(hint) hint.remove();
+    };
+
+    window.triggerMention = function() {
+        hideMentionHint();
+        if(!mentionActive) {
+            mentionActive = true;
+            mentionMenu.classList.remove('hidden');
+            chatInputBox.innerText += '@';
+            
+            // Move cursor to end
+            const range = document.createRange();
+            const sel = window.getSelection();
+            range.selectNodeContents(chatInputBox);
+            range.collapse(false);
+            sel.removeAllRanges();
+            sel.addRange(range);
+            chatInputBox.focus();
+        } else {
+            mentionActive = false;
+            mentionMenu.classList.add('hidden');
+            chatInputBox.innerText = chatInputBox.innerText.replace(/@$/, '');
+        }
+    };
+
     chatInputBox.addEventListener('input', function(e) {
+        hideMentionHint();
         const text = this.innerText;
         if(text.endsWith('@')) {
             mentionActive = true;
@@ -200,6 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const textLower = textContent.toLowerCase();
         if (textLower.includes('@ciu ciu') || textLower.includes('@cíu cíu')) {
+            document.getElementById('zalo-pinned-msg').style.display = 'flex';
             setTimeout(triggerBotPsychologyAnalysis, 1500);
         }
     }

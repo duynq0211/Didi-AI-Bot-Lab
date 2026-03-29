@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
 
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 104, 255, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 104, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 104, 255, 0); }
+}
+.fade-in-up {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
 :root {
     /* Zalo Colors */
     --z-blue: #0068ff;
@@ -393,7 +406,6 @@ body { font-family: 'Roboto', -apple-system, sans-serif; color: var(--z-text-mai
     .zalo-nav, .zalo-chat-list, .zalo-right-panel { display: none !important; }
     .zalo-main-chat { width: 100%; border-right: none; }
     .chat-msg { max-width: 88%; }
-    .pinned-message-bar { display: none; }
     .header-contact h2 { font-size: 15px; }
 
     /* === ADMIN WRAPPER: scrollable on mobile === */
@@ -455,14 +467,14 @@ body { font-family: 'Roboto', -apple-system, sans-serif; color: var(--z-text-mai
     #tab-billing .detail-header h2 { font-size: 16px; margin-top: 0; }
     /* Override inline-style 2fr 1fr grid → single column */
     #tab-billing .detail-grid-2 { grid-template-columns: 1fr !important; gap: 14px; }
-    #tab-billing .d-card { padding: 18px 14px; }
+    #tab-billing .d-card { padding: 18px 14px; min-width: 0; width: 100%; box-sizing: border-box; }
     /* Stat boxes: stack vertically */
     #billing-stat-boxes { flex-direction: column !important; gap: 10px !important; }
     #billing-stat-boxes .stat-box { flex: none !important; padding: 14px 16px !important; }
     #billing-stat-boxes .stat-box > div:last-child { font-size: 26px !important; }
     /* Billing header row: title + dropdown on same line, no wrap */
     #tab-billing .d-card > div:first-child { flex-wrap: nowrap !important; align-items: center !important; }
-    #tab-billing .d-card > div:first-child h3 { white-space: nowrap; margin: 0; font-size: 15px; }
+    #tab-billing .d-card > div:first-child h3 { white-space: nowrap; margin: 0; font-size: 15px; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
     /* Tables scroll horizontally on mobile — do NOT hide them */
     #billing-table-body { font-size: 12px; }
     #billing-table-body td { padding: 8px 6px !important; }
@@ -470,7 +482,7 @@ body { font-family: 'Roboto', -apple-system, sans-serif; color: var(--z-text-mai
     #tab-billing .d-card table { min-width: 460px; font-size: 12px; }
     #tab-billing .d-card table th { padding: 8px 6px; font-size: 11px; }
     /* Wrap the table's container so it scrolls */
-    #tab-billing h4 ~ div { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    #tab-billing .table-responsive-wrapper { overflow-x: auto !important; -webkit-overflow-scrolling: touch; width: 100%; }
     /* Donation table is narrow enough — no min-width needed */
     #donation-table-body { font-size: 12px; }
     #donation-table-body td { padding: 6px 0; }

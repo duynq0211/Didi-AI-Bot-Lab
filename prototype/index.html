@@ -89,7 +89,7 @@
                 </header>
 
                 <!-- Pinned Message -->
-                <div class="pinned-message-bar" onclick="scrollToAdminLink()">
+                <div class="pinned-message-bar fade-in-up" id="zalo-pinned-msg" onclick="scrollToAdminLink()" style="display: none;">
                     <i class="fa-solid fa-thumbtack pin-icon"></i>
                     <div class="pin-content">
                         <strong>Tin nhắn</strong>
@@ -481,7 +481,7 @@
                             </div>
 
                             <h4>Chi tiết sử dụng theo ngày</h4>
-                            <div style="margin-top: 12px; overflow-x: auto;">
+                            <div class="table-responsive-wrapper" style="margin-top: 12px; overflow-x: auto;">
                                 <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
                                     <thead>
                                         <tr style="border-bottom: 2px solid #e2e8f0; background: #f8fafc;">

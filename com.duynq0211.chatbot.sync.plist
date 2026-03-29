@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.duynq0211.chatbot.sync</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/lap14892-local/Library/CloudStorage/GoogleDrive-nguyenquangduy0211@gmail.com/My Drive/GOOGLE DRIVE/01. My Work/04. My Lab/01. Chatbot Assistant/github_sync.sh</string>
+    </array>
+    
+    <key>WatchPaths</key>
+    <array>
+        <string>/Users/lap14892-local/Library/CloudStorage/GoogleDrive-nguyenquangduy0211@gmail.com/My Drive/GOOGLE DRIVE/01. My Work/04. My Lab/01. Chatbot Assistant</string>
+    </array>
+    
+    <key>StandardOutPath</key>
+    <string>/tmp/chatbot_sync.out</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/chatbot_sync.err</string>
+    
+    <!-- Ngăn việc chạy liên tục nếu có nhiều file thay đổi trong 1 lúc (chạy cách nhau ít nhất 60s) -->
+    <key>ThrottleInterval</key>
+    <integer>60</integer>
+</dict>
+</plist>
