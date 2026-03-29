@@ -176,9 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
         atBtn.style.zIndex = '16';
         atBtn.style.background = '#fff';
         atBtn.style.borderRadius = '50%';
-        atBtn.style.width = '30px';
-        atBtn.style.height = '30px';
-        atBtn.style.lineHeight = '30px';
+        atBtn.style.width = '32px';
+        atBtn.style.height = '32px';
+        atBtn.style.lineHeight = '32px';
         atBtn.style.textAlign = 'center';
         atBtn.style.boxShadow = '0 0 0 4px #fff, 0 0 0 10px rgba(0,104,255,0.3)';
         atBtn.style.animation = 'pulse 1.5s infinite';
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             atBtn.parentElement.style.position = 'relative';
             atBtn.parentElement.appendChild(hint);
         }
-        hint.style.left = (atBtn.offsetLeft + 15) + 'px';
+        hint.style.left = (atBtn.offsetLeft + 16) + 'px';
     };
 
     window.hideMentionHint = function() {
