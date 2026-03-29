@@ -165,11 +165,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!overlay) {
             overlay = document.createElement('div');
             overlay.id = 'chat-dark-overlay';
-            overlay.style.cssText = 'position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index: 15; pointer-events:none; transition: opacity 0.3s;';
+            overlay.style.cssText = 'position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index: 15; pointer-events:auto; transition: opacity 0.3s; display:block;';
+            overlay.onclick = () => hideMentionHint();
             document.querySelector('.zalo-main-chat').style.position = 'relative';
             document.querySelector('.zalo-main-chat').appendChild(overlay);
         }
-        overlay.style.opacity = '1';
+        overlay.style.display = 'block';
+        setTimeout(() => overlay.style.opacity = '1', 10);
 
         const atBtn = document.querySelector('.fa-at');
         atBtn.style.position = 'relative';
@@ -200,20 +202,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const overlay = document.getElementById('chat-dark-overlay');
         if(overlay) {
             overlay.style.opacity = '0';
-            setTimeout(() => { if(overlay.style.opacity === '0') overlay.style.display = 'none'; }, 300);
+            overlay.style.display = 'none';
         }
         const atBtn = document.querySelector('.fa-at');
         if(atBtn) {
-            atBtn.style.zIndex = '';
-            atBtn.style.background = '';
-            atBtn.style.backgroundColor = '';
-            atBtn.style.borderRadius = '';
-            atBtn.style.width = '';
-            atBtn.style.height = '';
-            atBtn.style.lineHeight = '';
-            atBtn.style.textAlign = '';
-            atBtn.style.boxShadow = '';
-            atBtn.style.animation = '';
+            atBtn.removeAttribute('style');
         }
         const hint = document.getElementById('mention-tooltip');
         if(hint) hint.remove();
@@ -255,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.mention-item').forEach(item => {
         item.addEventListener('click', function() {
+            hideMentionHint();
             const name = this.getAttribute('data-name');
             let content = chatInputBox.innerHTML;
             content = content.replace(/@$/, `<span class="mention-tag" contenteditable="false">@${name}</span>&nbsp;`);
