@@ -203,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(atBtn) {
             atBtn.style.zIndex = '';
             atBtn.style.background = '';
+            atBtn.style.backgroundColor = '';
             atBtn.style.borderRadius = '';
             atBtn.style.width = '';
             atBtn.style.height = '';
