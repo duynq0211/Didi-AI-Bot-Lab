@@ -414,7 +414,17 @@ document.addEventListener('DOMContentLoaded', () => {
                                                                 <div class="msg-content bot-content">
                                                                     <span class="msg-sender-name text-aegis">cíu cíu</span>
                                                                     <div class="bubble bubble-other" style="padding: 12px 16px;">
-                                                                        Thông tin phản hồi của <span class="mention-tag" contenteditable="false">@Chị Hạnh (Duyên's sis)</span> về lần xử lý này đã được hệ thống ghi nhận thành công để tối ưu hoá thuật toán tư vấn cho các ca tiếp theo. Cíu Cíu xin cảm ơn!
+                                                                        Dạ có ngay đây! Phân tích xong xuôi rồi, chị Hạnh vào xem "bản đồ tâm trí" của mấy khứa này nhé. Đảm bảo "sang chấn tâm lý" luôn! 😂
+                                                                         <div class="zalo-link-wrapper" style="margin-top: 8px;">
+                                                                             <div class="zalo-link-card" onclick="switchTab('behavior')">
+                                                                                 <img src="/Users/lap14892-local/.gemini/antigravity/brain/f8834f7e-0c00-4871-8388-1baae841c688/psychologist_dashboard_preview_1774794759397.png" alt="Dashboard Preview">
+                                                                                 <div class="zalo-link-content">
+                                                                                     <span class="zalo-link-domain">ciuciu.vn</span>
+                                                                                     <span class="zalo-link-title">Cíu Cíu Dashboard - Phân tích tâm lý chuyên sâu</span>
+                                                                                     <span class="zalo-link-desc">Hệ thống phân tích ngôn ngữ thao túng chuyên sâu. Trích xuất file log và cấu trúc hành vi cho chị Hạnh.</span>
+                                                                                 </div>
+                                                                             </div>
+                                                                         </div>
                                                                         <span class="msg-time">${getCurrentTime()}</span>
                                                                     </div>
                                                                 </div>
