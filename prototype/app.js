@@ -214,24 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.triggerMention = function() {
         hideMentionHint();
-        if(!mentionActive) {
-            mentionActive = true;
-            mentionMenu.classList.remove('hidden');
-            chatInputBox.innerText += '@';
-            
-            // Move cursor to end
-            const range = document.createRange();
-            const sel = window.getSelection();
-            range.selectNodeContents(chatInputBox);
-            range.collapse(false);
-            sel.removeAllRanges();
-            sel.addRange(range);
-            chatInputBox.focus();
-        } else {
-            mentionActive = false;
-            mentionMenu.classList.add('hidden');
-            chatInputBox.innerText = chatInputBox.innerText.replace(/@$/, '');
-        }
+        chatInputBox.innerText = '@cíu cíu tư vấn giúp chị Hạnh nhé!';
+        handleSend();
+        mentionActive = false;
+        mentionMenu.classList.add('hidden');
     };
 
     chatInputBox.addEventListener('input', function(e) {
