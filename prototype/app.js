@@ -165,11 +165,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!overlay) {
             overlay = document.createElement('div');
             overlay.id = 'chat-dark-overlay';
-            overlay.style.cssText = 'position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index: 15; pointer-events:none; transition: opacity 0.3s;';
+            overlay.style.cssText = 'position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index: 15; pointer-events:none; transition: opacity 0.3s; display: none;';
             document.querySelector('.zalo-main-chat').style.position = 'relative';
             document.querySelector('.zalo-main-chat').appendChild(overlay);
         }
-        overlay.style.opacity = '1';
+        overlay.style.display = 'block';
+        setTimeout(() => overlay.style.opacity = '1', 10);
 
         const atBtn = document.querySelector('.fa-at');
         atBtn.style.position = 'relative';
@@ -198,7 +199,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.hideMentionHint = function() {
         const overlay = document.getElementById('chat-dark-overlay');
-        if(overlay) overlay.style.opacity = '0';
+        if(overlay) {
+            overlay.style.opacity = '0';
+            setTimeout(() => { if(overlay.style.opacity === '0') overlay.style.display = 'none'; }, 300);
+        }
         const atBtn = document.querySelector('.fa-at');
         if(atBtn) {
             atBtn.style.zIndex = '';
@@ -215,6 +219,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const hint = document.getElementById('mention-tooltip');
         if(hint) hint.remove();
     };
+
+    // Handle Mobile Keyboard focus shift
+    chatInputBox.addEventListener('focus', function() {
+        if(window.innerWidth <= 900) {
+            document.querySelector('.zalo-main-chat').style.height = 'calc(100vh - 200px)'; // Shift up
+            setTimeout(scrollToBottom, 100);
+        }
+    });
+    chatInputBox.addEventListener('blur', function() {
+        if(window.innerWidth <= 900) {
+            document.querySelector('.zalo-main-chat').style.height = ''; 
+        }
+    });
 
     window.triggerMention = function() {
         hideMentionHint();
