@@ -27,17 +27,22 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById(viewId).classList.add('active-view');
         
         if (viewId === 'view-admin') {
-            zaloNav.style.display = 'none'; // Hide Zalo Nav completely
+            zaloNav.style.display = 'none'; // Hide Zalo Nav
             if (!chartRendered) {
                 selectIncident(document.querySelector('#tab-behavior .m-item.active'), 'case14');
                 chartRendered = true;
             }
         } else {
             zaloNav.style.display = 'flex'; // Show Zalo Nav
-            // Reset Admin active states
             navIcons.forEach(n => n.classList.remove('active'));
             document.querySelector('[data-target="view-zalo"]').classList.add('active');
         }
+    };
+
+    window.navigateToDashboard = function(tabId) {
+        switchView('view-admin');
+        const tabBtn = document.querySelector(`.atab[data-tab="tab-${tabId}"]`);
+        if(tabBtn) tabBtn.click();
     };
 
     navIcons.forEach(icon => {
@@ -118,19 +123,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 setTimeout(() => {
                     const adminMsg = insertMessage('msg-me', 'Me', '', 'bubble-me', `
-                        đây, mời chị em coi qua nhé<br>
+                        Đây đây<br>
                         <div class="zalo-link-wrapper mt-2 mb-2" id="admin-link-trigger" onclick="switchView('view-admin')">
                             <a href="#" class="zalo-link-url" onclick="event.preventDefault()">ciuciu.vn/tracking-dashboard?case=14&ref=zalo_share_id19A24b</a>
                             <div class="zalo-link-card">
-                                <img src="https://i.ibb.co/3pQ01bK/dashboard-preview.png" alt="Didi AI Bot Lab Dashboard"/>
+                                <img src="dashboard_preview.png" alt="Didi AI Bot Lab Dashboard"/>
                                 <div class="zalo-link-content">
                                     <span class="zalo-link-domain">ciuciu.vn</span>
-                                    <div class="zalo-link-title">Cíu Cíu Dashboard</div>
-                                    <div class="zalo-link-desc">Hệ thống phân tích ngôn ngữ thao túng chuyên sâu. Trích xuất file log và cấu trúc hành vi.</div>
+                                    <div class="zalo-link-title">Cíu Cíu Dashboard - Phân tích tâm lý chuyên sâu</div>
+                                    <div class="zalo-link-desc">Hệ thống phân tích ngôn ngữ thao túng chuyên sâu. Trích xuất file log và cấu trúc hành vi cho chị Hạnh.</div>
                                 </div>
                             </div>
                         </div>
-                        Lên kèo lên kèo. Mới deploy xong nha mng. Mng kích thẳng zô cái link ở trên để xài hệ thống Dashboard lun ih.
                     `);
                     adminMsg.id = "target-admin-msg";
                     
@@ -176,7 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const atBtn = document.querySelector('.fa-at');
         atBtn.style.zIndex = '16';
         atBtn.style.backgroundColor = '#fff';
-        atBtn.style.boxShadow = '0 0 0 4px #fff, 0 0 0 10px rgba(0,104,255,0.3)';
+        atBtn.style.borderRadius = '50%';
+        atBtn.style.boxShadow = '0 0 0 4px #fff, 0 0 0 12px rgba(0,104,255,0.4), 0 0 20px 5px rgba(255,255,255,0.6)';
         atBtn.style.animation = 'pulse-btn 1.5s infinite';
         
         let hint = document.getElementById('mention-tooltip');
@@ -195,8 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.hideMentionHint = function() {
         const overlay = document.getElementById('chat-dark-overlay');
         if(overlay) {
-            overlay.style.opacity = '0';
-            overlay.style.display = 'none';
+            overlay.remove();
         }
         const atBtn = document.querySelector('.fa-at');
         if(atBtn) {
@@ -208,12 +212,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.triggerMention = function() {
         hideMentionHint();
-        chatInputBox.innerText = '@cíu cíu, tư vấn giúp Hạnh nhé!!';
+        chatInputBox.innerHTML = '@cíu cíu, tư vấn giúp Hạnh nhé!!';
+        chatInputBox.dispatchEvent(new Event('input', { bubbles: true }));
         setTimeout(() => {
             handleSend();
             mentionActive = false;
             mentionMenu.classList.add('hidden');
-        }, 100);
+        }, 50);
     };
 
     chatInputBox.addEventListener('input', function(e) {
@@ -418,7 +423,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                                                     <div class="bubble bubble-other" style="padding: 12px 16px;">
                                                                         Dạ có ngay đây! Phân tích xong xuôi rồi, chị Hạnh vào xem "bản đồ tâm trí" của mấy khứa này nhé. Đảm bảo "sang chấn tâm lý" luôn! 😂
                                                                          <div class="zalo-link-wrapper" style="margin-top: 8px;">
-                                                                             <div class="zalo-link-card" onclick="switchTab('behavior')">
+                                                                             <div class="zalo-link-card" onclick="window.navigateToDashboard('behavior')">
                                                                                  <img src="dashboard_preview.png" alt="Dashboard Preview">
                                                                                  <div class="zalo-link-content">
                                                                                      <span class="zalo-link-domain">ciuciu.vn</span>
@@ -434,11 +439,11 @@ document.addEventListener('DOMContentLoaded', () => {
                                                         `;
                                                         chatAnchor.insertAdjacentHTML('beforebegin', updateHtml);
                                                         scrollToBottom();
-                                                        }, 2500);
-                                                    }, 2000);
+                                                        scrollToBottom();
+                                                    }, 3000);
                                                 }, 4000);
-                                            }, 2500);
-                                        }, 2500);
+                                            }, 4000);
+                                        }, 4000);
                                     }, 4000);
                                 }, 3000);
                             }, 4500);
@@ -446,6 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }, 4000);
                 }, 4000);
             }, 5000);
+        }, 3000);
     }
 
     // --- 6. Admin Tabbing & Selection Logic ---
@@ -626,15 +632,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    window.triggerMention = function() {
-        chatInputBox.innerHTML = '<span class="mention-tag" contenteditable="false">@cíu cíu</span>, tư vấn giúp Hạnh nhé!!';
-        chatInputBox.focus();
-        const range = document.createRange();
-        range.selectNodeContents(chatInputBox);
-        range.collapse(false);
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-    };
+
 
     window.submitAILearning = function() {
         const input = document.getElementById('actual-outcome').value;
