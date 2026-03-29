@@ -208,12 +208,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.triggerMention = function() {
         hideMentionHint();
-        chatInputBox.innerText = '@cíu cíu tư vấn giúp chị Hạnh nhé!';
+        chatInputBox.innerText = '@cíu cíu, tư vấn giúp Hạnh nhé!!';
         setTimeout(() => {
             handleSend();
             mentionActive = false;
             mentionMenu.classList.add('hidden');
-        }, 50);
+        }, 100);
     };
 
     chatInputBox.addEventListener('input', function(e) {
@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                                                         Dạ có ngay đây! Phân tích xong xuôi rồi, chị Hạnh vào xem "bản đồ tâm trí" của mấy khứa này nhé. Đảm bảo "sang chấn tâm lý" luôn! 😂
                                                                          <div class="zalo-link-wrapper" style="margin-top: 8px;">
                                                                              <div class="zalo-link-card" onclick="switchTab('behavior')">
-                                                                                 <img src="/Users/lap14892-local/.gemini/antigravity/brain/f8834f7e-0c00-4871-8388-1baae841c688/psychologist_dashboard_preview_1774794759397.png" alt="Dashboard Preview">
+                                                                                 <img src="dashboard_preview.png" alt="Dashboard Preview">
                                                                                  <div class="zalo-link-content">
                                                                                      <span class="zalo-link-domain">ciuciu.vn</span>
                                                                                      <span class="zalo-link-title">Cíu Cíu Dashboard - Phân tích tâm lý chuyên sâu</span>

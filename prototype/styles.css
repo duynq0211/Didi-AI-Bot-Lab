@@ -122,7 +122,7 @@ body { font-family: 'Roboto', -apple-system, sans-serif; color: var(--z-text-mai
 
 .chat-msg { display: flex; gap: 10px; max-width: 75%; }
 .msg-other { align-self: flex-start; }
-.msg-me { align-self: flex-end; flex-direction: row-reverse; margin-right: 24px !important; }
+.msg-me { align-self: flex-end; flex-direction: row-reverse; margin-right: 32px !important; }
 .msg-avatar { width: 32px; height: 32px; border-radius: 50%; }
 .msg-content { display: flex; flex-direction: column; }
 .msg-sender-name { font-size: 12px; color: var(--z-text-muted); margin-bottom: 4px; margin-left: 10px;}
@@ -144,7 +144,7 @@ body { font-family: 'Roboto', -apple-system, sans-serif; color: var(--z-text-mai
 .zalo-link-url { color: #1e3a8a; word-break: break-all; font-size: 14px; text-decoration: underline; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .zalo-link-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; cursor: pointer; transition: 0.2s; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; }
 .zalo-link-card:hover { border-color: #cbd5e1; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-.zalo-link-card img { width: 100%; height: auto; display: block; max-height: 180px; object-fit: cover; border-bottom: 1px solid #e2e8f0;}
+.zalo-link-card img { width: 100%; height: auto; display: block; max-height: 180px; object-fit: cover; border-bottom: 1px solid #e2e8f0; background: #f8fafc; }
 .zalo-link-content { padding: 8px; }
 .zalo-link-domain { font-size: 11px; color: #1e3a8a; margin-bottom: 4px; display: block;}
 .zalo-link-title { font-size: 14px; font-weight: 600; color: #0f172a; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.3;}
@@ -405,7 +405,7 @@ body { font-family: 'Roboto', -apple-system, sans-serif; color: var(--z-text-mai
     /* === ZALO CHAT: hide sidebars === */
     .zalo-nav, .zalo-chat-list, .zalo-right-panel { display: none !important; }
     .zalo-main-chat { width: 100%; border-right: none; height: 100%; display: flex; flex-direction: column; position: relative; }
-    .chat-history-scroll { flex: 1; padding: 14px 22px 14px 14px; }
+    .chat-history-scroll { flex: 1; padding: 14px 32px 14px 14px; }
     .chat-msg { max-width: 80%; }
     .header-contact h2 { font-size: 15px; }
 
