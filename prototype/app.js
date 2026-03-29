@@ -209,9 +209,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.triggerMention = function() {
         hideMentionHint();
         chatInputBox.innerText = '@cíu cíu tư vấn giúp chị Hạnh nhé!';
-        handleSend();
-        mentionActive = false;
-        mentionMenu.classList.add('hidden');
+        setTimeout(() => {
+            handleSend();
+            mentionActive = false;
+            mentionMenu.classList.add('hidden');
+        }, 50);
     };
 
     chatInputBox.addEventListener('input', function(e) {
