@@ -174,16 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => overlay.style.opacity = '1', 10);
 
         const atBtn = document.querySelector('.fa-at');
-        atBtn.style.position = 'relative';
         atBtn.style.zIndex = '16';
-        atBtn.style.background = '#fff';
-        atBtn.style.borderRadius = '50%';
-        atBtn.style.width = '32px';
-        atBtn.style.height = '32px';
-        atBtn.style.lineHeight = '32px';
-        atBtn.style.textAlign = 'center';
+        atBtn.style.backgroundColor = '#fff';
         atBtn.style.boxShadow = '0 0 0 4px #fff, 0 0 0 10px rgba(0,104,255,0.3)';
-        atBtn.style.animation = 'pulse 1.5s infinite';
+        atBtn.style.animation = 'pulse-btn 1.5s infinite';
         
         let hint = document.getElementById('mention-tooltip');
         if(!hint) {
