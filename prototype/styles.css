@@ -116,7 +116,7 @@ body { font-family: 'Roboto', -apple-system, sans-serif; color: var(--z-text-mai
 .pin-actions span { border: 1px solid var(--z-border); padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500; }
 
 /* Chat History */
-.chat-history-scroll { flex: 1; overflow-y: auto; padding: 20px 14px; display: flex; flex-direction: column; gap: 12px; position:relative; scroll-behavior: smooth;}
+.chat-history-scroll { flex: 1; overflow-y: auto; scrollbar-gutter: stable; padding: 20px 14px; display: flex; flex-direction: column; gap: 12px; position:relative; scroll-behavior: smooth;}
 .chat-date-divider { text-align: center; margin: 10px 0; }
 .chat-date-divider span { background: rgba(0,0,0,0.1); color: #fff; font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 20px; text-shadow: 0 1px 1px rgba(0,0,0,0.2); }
 
