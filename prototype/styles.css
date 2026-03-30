@@ -642,6 +642,10 @@ body { font-family: 'Roboto', -apple-system, sans-serif; color: var(--z-text-mai
         min-width: 0;
         font-weight: 700;
         color: #0f172a;
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+        line-height: 1.4 !important;
     }
 
     /* Tables: horizontal scroll */
