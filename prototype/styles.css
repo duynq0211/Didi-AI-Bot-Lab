@@ -71,7 +71,7 @@ body { font-family: 'Roboto', -apple-system, sans-serif; color: var(--z-text-mai
 .nav-icon:hover, .nav-icon.active { background: rgba(0,0,0,0.15); color: #fff; }
 .badge-red { position: absolute; top: 6px; right: 8px; background: #e22828; color: #fff; font-size: 10px; font-weight: bold; padding: 1px 5px; border-radius: 10px; border: 1px solid var(--z-blue); }
 
-.view { display: none; flex: 1; height: 100%; }
+.view { display: none; flex: 1; height: 100%; overflow: hidden; min-width: 0; }
 .view.active-view { display: flex; }
 
 /* Zalo Chat List */
@@ -127,9 +127,9 @@ body { font-family: 'Roboto', -apple-system, sans-serif; color: var(--z-text-mai
 .msg-other { align-self: flex-start; }
 .msg-me { align-self: flex-end; flex-direction: row-reverse; margin-right: 32px !important; }
 .msg-avatar { width: 32px; height: 32px; border-radius: 50%; }
-/* min-width:0 is critical: without it, flex children won't shrink below content size,
-   causing long text bubbles to overflow their parent max-width container. */
-.msg-content { display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+/* min-width:0 is critical: without it, flex children won't shrink below content size.
+   Do NOT add overflow:hidden here — it clips the absolutely-positioned reaction badges. */
+.msg-content { display: flex; flex-direction: column; min-width: 0; max-width: 100%; }
 .msg-sender-name { font-size: 12px; color: var(--z-text-muted); margin-bottom: 4px; margin-left: 10px;}
 .msg-me .msg-sender-name { display: none; }
 

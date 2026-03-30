@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <img src="https://ui-avatars.com/api/?name=Ciu&background=0068ff&color=fff" alt="" class="msg-avatar">
                                 <div class="msg-content bot-content">
                                     <span class="msg-sender-name text-aegis">cíu cíu</span>
-                                    <div class="bubble bubble-other" style="padding: 12px 16px; min-width: 260px;">
+                                    <div class="bubble bubble-other" style="padding: 12px 16px;">
                                         Đã nhận yêu cầu từ <span class="mention-tag" contenteditable="false">@Duyên Nguyễn</span> 🫡 Cíu Cíu tinh chỉnh kết hợp thành <b>Phương án B+ (Ranh Giới Thép)</b>:<br><br>
                                         Mục tiêu: Dùng sự lịch sự làm vũ khí phòng thủ để khoá mõm nạn nhân giả tạo.<br><br>
                                         <i>"Chào anh, tôi luôn ghi nhận thiện chí của anh. Tuy nhiên, lịch đón con thứ 7 đã được tự nguyện thống nhất để đảm bảo ổn định tâm lý cho con. Nếu anh không thể thu xếp, tuần này anh có thể dừng đón. Mọi sự thay đổi lịch đột xuất sẽ không được đáp ứng."</i>
