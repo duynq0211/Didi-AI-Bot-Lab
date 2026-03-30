@@ -431,14 +431,18 @@ document.addEventListener('DOMContentLoaded', () => {
                                                                 <div class="msg-content bot-content">
                                                                     <span class="msg-sender-name text-aegis">cíu cíu</span>
                                                                     <div class="bubble bubble-other" style="padding: 12px 16px;">
-                                                                        Dạ có ngay đây! Phân tích xong xuôi rồi, chị Hạnh vào xem "bản đồ tâm trí" của mấy khứa này nhé. Đảm bảo "sang chấn tâm lý" luôn! 😂
-                                                                         <div class="zalo-link-wrapper" style="margin-top: 8px;">
+                                                                        🧠 <b>[Didi AI Bot Lab] Cập nhật học liệu hoàn tất!</b><br><br>
+                                                                        Cíu Cíu đã xử lý và lưu toàn bộ dữ liệu phiên <b>Case 14</b> vào bộ nhớ dài hạn để <b>cải thiện năng lực tư vấn tâm lý</b> cho các lần sau. Cụ thể:<br><br>
+                                                                        • 📊 <b>Cập nhật hồ sơ hành vi đối tượng:</b> Xác nhận đối tượng <i>rất nhạy cảm với bằng chứng pháp lý văn bản</i>. Chiến thuật dọa tòa là đòn hư.<br>
+                                                                        • 🎯 <b>Tinh chỉnh chiến lược phòng thủ:</b> Tăng tần suất keyword <i>"Lưu màn hình", "Bằng chứng tin nhắn"</i>; giảm phản hồi cảm xúc xuống 0%.<br>
+                                                                        • 🗂️ <b>Chi tiết phân tích:</b> Đồ thị tỉ trọng thao túng, chuỗi hành vi & chiến thuật phòng thủ tối ưu đã được tổng hợp tại dashboard 👇<br><br>
+                                                                         <div class="zalo-link-wrapper" style="margin-top: 6px;">
                                                                              <div class="zalo-link-card" onclick="window.navigateToDashboard('behavior')">
                                                                                  <img src="dashboard_preview.png" alt="Dashboard Preview">
                                                                                  <div class="zalo-link-content">
-                                                                                     <span class="zalo-link-domain">ciuciu.vn</span>
-                                                                                     <span class="zalo-link-title">Cíu Cíu Dashboard - Phân tích tâm lý chuyên sâu</span>
-                                                                                     <span class="zalo-link-desc">Hệ thống phân tích ngôn ngữ thao túng chuyên sâu. Trích xuất file log và cấu trúc hành vi cho chị Hạnh.</span>
+                                                                                     <span class="zalo-link-domain">ciuciu.vn/dashboard</span>
+                                                                                     <span class="zalo-link-title">Cíu Cíu Dashboard — Phân tích Tâm lý Chuyên sâu</span>
+                                                                                     <span class="zalo-link-desc">Case 14 • Bẫy Ngày Thăm Con · Đồ thị thao túng · Hồ sơ hành vi cập nhật · Chiến lược phòng thủ tối ưu.</span>
                                                                                  </div>
                                                                              </div>
                                                                          </div>
@@ -867,9 +871,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const tbody = document.getElementById('donation-table-body');
         tbody.innerHTML = data.map(item => `
             <tr style="border-bottom: 1px solid #f5f5f4;">
-                <td style="padding: 8px 0; color: #57534e;">${item.date}</td>
-                <td style="padding: 8px 0; color: #44403c; font-weight: 500;">${item.sender}</td>
-                <td style="padding: 8px 0; text-align: right; font-weight: bold; color: #166534;">${item.amount}</td>
+                <td style="padding: 8px 4px 8px 0; color: #57534e; white-space:nowrap;">${item.date}</td>
+                <td style="padding: 8px 4px; color: #44403c; font-weight: 500;">${item.sender}</td>
+                <td style="padding: 8px 0 8px 4px; text-align: right; font-weight: bold; color: #166534; white-space:nowrap;">${item.amount}</td>
             </tr>
         `).join('');
         

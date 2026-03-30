@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Didi AI Bot Lab</title>
-    <link rel="stylesheet" href="styles.css?v=15">
+    <link rel="stylesheet" href="styles.css?v=16">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -357,58 +357,64 @@
                             <button class="btn-icon" onclick="createNewPrompt()" title="Tạo Mới"><i class="fa-solid fa-plus"></i></button>
                         </div>
                         <div class="master-items">
-                            <div class="m-item prmt-card prmt-active" onclick="selectPrompt(this, 'greyrock')" id="list-prmt-greyrock" style="border-left: 4px solid #3b82f6; background: #f8fafc; padding: 12px 16px; margin-bottom: 8px;">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
-                                    <div style="width: 28px; height: 28px; border-radius: 6px; background: #eff6ff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                        <i class="fa-solid fa-brain" style="color: #3b82f6; font-size: 13px;"></i>
+                            <div class="m-item prmt-card prmt-active" onclick="selectPrompt(this, 'greyrock')" id="list-prmt-greyrock">
+                                <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                                    <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#eff6ff,#dbeafe);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                        <i class="fa-solid fa-brain" style="color:#3b82f6;font-size:15px;"></i>
                                     </div>
-                                    <div>
-                                        <h4 style="margin: 0; font-size: 13px;">Chế độ Đá xám</h4>
-                                        <p class="text-sm text-muted" style="margin: 0; font-size: 10px;">Lạnh nhạt, không cảm xúc</p>
+                                    <div style="min-width:0;">
+                                        <h4 style="margin:0;font-size:14px;font-weight:700;color:#0f172a;">Chế độ Đá xám</h4>
+                                        <p style="margin:0;font-size:11px;color:#94a3b8;font-weight:500;">Lạnh nhạt, không cảm xúc</p>
                                     </div>
                                 </div>
-                                <p style="font-size: 11px; color: #64748b; margin: 0 0 6px; line-height: 1.4;">Cắt đứt hoàn toàn nguồn cung cảm xúc, phản hồi nhàm chán để kẻ thao túng mất hứng.</p>
-                                <span class="tag-green active-tag" style="display:inline-flex; align-items: center; gap: 4px; font-size: 9px; padding: 1px 6px;"><i class="fa-solid fa-play"></i> Đang được chọn</span>
+                                <p style="font-size:12px;color:#64748b;margin:0 0 10px;line-height:1.5;">Cắt đứt hoàn toàn nguồn cung cảm xúc, phản hồi nhàm chán để kẻ thao túng mất hứng.</p>
+                                <div style="border-top:1px dashed #e2e8f0;padding-top:8px;margin-top:2px;">
+                                    <span class="tag-green active-tag" style="display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 8px;"><i class="fa-solid fa-play"></i> Đang được chọn</span>
+                                </div>
                             </div>
 
-                            <div class="m-item prmt-card" onclick="selectPrompt(this, 'dearman')" id="list-prmt-dearman" style="border-left: 4px solid #3b82f6; background: #f8fafc; padding: 12px 16px; margin-bottom: 8px;">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
-                                    <div style="width: 28px; height: 28px; border-radius: 6px; background: #eff6ff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                        <i class="fa-solid fa-brain" style="color: #3b82f6; font-size: 13px;"></i>
+                            <div class="m-item prmt-card" onclick="selectPrompt(this, 'dearman')" id="list-prmt-dearman">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                    <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                        <i class="fa-solid fa-shield-halved" style="color:#22c55e;font-size:15px;"></i>
                                     </div>
-                                    <div>
-                                        <h4 style="margin: 0; font-size: 13px;">Chế độ Ranh giới</h4>
-                                        <p class="text-sm text-muted" style="margin: 0; font-size: 10px;">Mềm mỏng nhưng quy tắc</p>
+                                    <div style="min-width:0;">
+                                        <h4 style="margin:0;font-size:14px;font-weight:700;color:#0f172a;">Chế độ Ranh giới</h4>
+                                        <p style="margin:0;font-size:11px;color:#94a3b8;font-weight:500;">Mềm mỏng nhưng quy tắc</p>
                                     </div>
                                 </div>
-                                <p style="font-size: 11px; color: #64748b; margin: 0 0 6px; line-height: 1.4;">Giữ lịch sự, thiết lập ranh giới rõ ràng bằng ngôn ngữ có giới hạn và cảm xúc ưu tiên bảo hộ bản thân.</p>
-                                <span class="tag-green active-tag" style="display:none; align-items: center; gap: 4px; font-size: 9px; padding: 1px 6px;"><i class="fa-solid fa-play"></i> Đang được chọn</span>
+                                <p style="font-size:12px;color:#64748b;margin:0 0 10px;line-height:1.5;">Giữ lịch sự, thiết lập ranh giới rõ ràng bằng ngôn ngữ có giới hạn và cảm xúc ưu tiên bảo hộ bản thân.</p>
+                                <div style="border-top:1px dashed #e2e8f0;padding-top:8px;margin-top:2px;">
+                                    <span class="tag-green active-tag" style="display:none;align-items:center;gap:4px;font-size:10px;padding:2px 8px;"><i class="fa-solid fa-play"></i> Đang được chọn</span>
+                                </div>
                             </div>
 
-                            <div class="m-item prmt-card" onclick="selectPrompt(this, 'hardcore')" id="list-prmt-hardcore" style="border-left: 4px solid #3b82f6; background: #f8fafc; padding: 12px 16px; margin-bottom: 8px;">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
-                                    <div style="width: 28px; height: 28px; border-radius: 6px; background: #eff6ff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                        <i class="fa-solid fa-brain" style="color: #3b82f6; font-size: 13px;"></i>
+                            <div class="m-item prmt-card" onclick="selectPrompt(this, 'hardcore')" id="list-prmt-hardcore">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                    <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#fff1f2,#fee2e2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                        <i class="fa-solid fa-bolt" style="color:#ef4444;font-size:15px;"></i>
                                     </div>
-                                    <div>
-                                        <h4 style="margin: 0; font-size: 13px;">Chế độ Bóc mẽ</h4>
-                                        <p class="text-sm text-muted" style="margin: 0; font-size: 10px;">Đập tan thao túng</p>
+                                    <div style="min-width:0;">
+                                        <h4 style="margin:0;font-size:14px;font-weight:700;color:#0f172a;">Chế độ Bóc mẽ</h4>
+                                        <p style="margin:0;font-size:11px;color:#94a3b8;font-weight:500;">Đập tan thao túng</p>
                                     </div>
                                 </div>
-                                <p style="font-size: 11px; color: #64748b; margin: 0; line-height: 1.4;">Gọi thẳng tên hành vi, dùng ngôn ngữ trực diện và tài liệu bằng chứng để bác bỏ hoàn toàn thủ thuật.</p>
-                                <span class="tag-green active-tag" style="display:none; align-items: center; gap: 4px; font-size: 9px; padding: 1px 6px;"><i class="fa-solid fa-play"></i> Đang được chọn</span>
+                                <p style="font-size:12px;color:#64748b;margin:0 0 10px;line-height:1.5;">Gọi thẳng tên hành vi, dùng ngôn ngữ trực diện và tài liệu bằng chứng để bác bỏ hoàn toàn thủ thuật.</p>
+                                <div style="border-top:1px dashed #e2e8f0;padding-top:8px;margin-top:2px;">
+                                    <span class="tag-green active-tag" style="display:none;align-items:center;gap:4px;font-size:10px;padding:2px 8px;"><i class="fa-solid fa-play"></i> Đang được chọn</span>
+                                </div>
                             </div>
                         </div>
                     </aside>
 
                     <!-- Detail View -->
                     <section class="admin-detail-view">
-                        <div class="detail-header" style="justify-content: space-between;">
-                            <div>
-                                <h2 id="prmt-title" style="margin-top: 0; white-space: nowrap; max-width: none;">Cấu hình bot: <span class="text-primary">Đá xám</span></h2>
-                                <button class="btn-outline btn-sm mt-2">Khôi phục mặc định</button>
+                        <div class="detail-header" id="prmt-detail-header" style="justify-content: space-between; align-items: center; flex-wrap: nowrap; gap: 12px;">
+                            <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; min-width:0;">
+                                <h2 id="prmt-title" style="margin:0; white-space:nowrap;">Cấu hình bot: <span class="text-primary">Đá xám</span></h2>
+                                <button class="btn-outline btn-sm" style="white-space:nowrap; flex-shrink:0;">Khôi phục mặc định</button>
                             </div>
-                            <div id="prmt-status">
+                            <div id="prmt-status" style="flex-shrink:0;">
                                 <span class="tag-green float-right"><i class="fa-solid fa-play"></i> Đang là chế độ hệ thống</span>
                             </div>
                         </div>
@@ -549,27 +555,34 @@
                                     </div>
                                 </div>
                             </div>
-                            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13px;">
+                            <div class="donation-table-wrapper" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 4px;">
+                            <table style="width: 100%; min-width: 220px; border-collapse: collapse; text-align: left; font-size: 13px;">
+                                <colgroup>
+                                    <col style="width: 90px;">
+                                    <col>
+                                    <col style="width: 90px;">
+                                </colgroup>
                                 <thead>
                                     <tr style="border-bottom: 1px solid #e7e5e4; color: #78716c; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px;">
-                                        <th style="padding: 6px 0;">Ngày</th>
-                                        <th style="padding: 6px 0;">Người gửi</th>
-                                        <th style="padding: 6px 0; text-align: right;">Số tiền</th>
+                                        <th style="padding: 6px 8px 6px 0; white-space:nowrap;">Ngày</th>
+                                        <th style="padding: 6px 8px;">Người gửi</th>
+                                        <th style="padding: 6px 0 6px 8px; text-align: right; white-space:nowrap;">Số tiền</th>
                                     </tr>
                                 </thead>
                                 <tbody id="donation-table-body">
                                     <tr style="border-bottom: 1px solid #f5f5f4;">
-                                        <td style="padding: 8px 0; color: #57534e;">15/03/2026</td>
-                                        <td style="padding: 8px 0; color: #44403c; font-weight: 500;">Chị Hạnh</td>
-                                        <td style="padding: 8px 0; text-align: right; font-weight: bold; color: #166534;">+ 50,000đ</td>
+                                        <td style="padding: 8px 8px 8px 0; color: #57534e; white-space:nowrap;">15/03/2026</td>
+                                        <td style="padding: 8px; color: #44403c; font-weight: 500;">Chị Hạnh</td>
+                                        <td style="padding: 8px 0 8px 8px; text-align: right; font-weight: bold; color: #166534; white-space:nowrap;">+ 50,000đ</td>
                                     </tr>
                                     <tr style="border-bottom: 1px solid #f5f5f4;">
-                                        <td style="padding: 8px 0; color: #57534e;">02/03/2026</td>
-                                        <td style="padding: 8px 0; color: #44403c; font-weight: 500;">Chị Hạnh</td>
-                                        <td style="padding: 8px 0; text-align: right; font-weight: bold; color: #166534;">+ 100,000đ</td>
+                                        <td style="padding: 8px 8px 8px 0; color: #57534e; white-space:nowrap;">02/03/2026</td>
+                                        <td style="padding: 8px; color: #44403c; font-weight: 500;">Chị Hạnh</td>
+                                        <td style="padding: 8px 0 8px 8px; text-align: right; font-weight: bold; color: #166534; white-space:nowrap;">+ 100,000đ</td>
                                     </tr>
                                 </tbody>
                             </table>
+                            </div>
                             <div class="text-right mt-2" style="font-size: 14px; text-align: right;">Tổng cộng: <strong style="color: #ec4899; font-size: 16px;">150,000đ 💖</strong></div>
                         </div>
                     </div>
@@ -639,6 +652,6 @@
             </div>
         </div>
     </div>
-    <script src="app.js?v=38"></script>
+    <script src="app.js?v=39"></script>
 </body>
 </html>
