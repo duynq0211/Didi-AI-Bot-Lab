@@ -169,32 +169,40 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!overlay) {
             overlay = document.createElement('div');
             overlay.id = 'chat-dark-overlay';
-            overlay.style.cssText = 'position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index: 15; pointer-events:auto; transition: opacity 0.3s; display:block;';
+            // Use position:absolute on the already-relative zalo-main-chat — no layout change needed
+            overlay.style.cssText = 'position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index: 15; pointer-events:auto; transition: opacity 0.3s; display:block; opacity:0;';
             overlay.onclick = () => hideMentionHint();
-            document.querySelector('.zalo-main-chat').style.position = 'relative';
+            // zalo-main-chat already has position:relative in CSS — no inline style needed
             document.querySelector('.zalo-main-chat').appendChild(overlay);
         }
         overlay.style.display = 'block';
         setTimeout(() => overlay.style.opacity = '1', 10);
 
         const atBtn = document.querySelector('.fa-at');
-        atBtn.style.zIndex = '16';
-        atBtn.style.backgroundColor = '#fff';
-        atBtn.style.borderRadius = '50%';
-        atBtn.style.boxShadow = '0 0 0 4px #fff, 0 0 0 12px rgba(0,104,255,0.4), 0 0 20px 5px rgba(255,255,255,0.6)';
-        atBtn.style.animation = 'pulse-btn 1.5s infinite';
+        // Only apply visual (non-layout) styles: zIndex, boxShadow, animation.
+        // Do NOT change backgroundColor/borderRadius here as they can cause layout shifts
+        // when the element is inside a flex container on mobile.
+        atBtn.style.cssText = 'z-index: 16; position: relative; animation: pulse-btn 1.5s infinite; box-shadow: 0 0 0 4px #fff, 0 0 0 12px rgba(0,104,255,0.4), 0 0 20px 5px rgba(255,255,255,0.6); background-color: #fff; border-radius: 50%;';
         
+        // Reposition tooltip using fixed positioning relative to viewport
+        // so it is appended to body — completely outside the chat layout tree.
         let hint = document.getElementById('mention-tooltip');
         if(!hint) {
             hint = document.createElement('div');
             hint.id = 'mention-tooltip';
             hint.innerHTML = 'Bấm vào đây <i class="fa-solid fa-hand-pointer fa-bounce"></i>';
-            hint.style.cssText = 'position: absolute; bottom: 45px; transform: translateX(-50%); background: #0068ff; color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; white-space: nowrap; pointer-events: none; z-index: 16; box-shadow: 0 4px 6px rgba(0,0,0,0.1);';
             hint.innerHTML += '<div style="position:absolute; bottom:-5px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:6px solid #0068ff;"></div>';
-            atBtn.parentElement.style.position = 'relative';
-            atBtn.parentElement.appendChild(hint);
+            hint.style.cssText = 'position: fixed; background: #0068ff; color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; white-space: nowrap; pointer-events: none; z-index: 10000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transform: translateX(-50%);';
+            document.body.appendChild(hint);
         }
-        hint.style.left = (atBtn.offsetLeft + 16) + 'px';
+        // Position the tooltip above the @ button using its viewport-relative coordinates
+        const rect = atBtn.getBoundingClientRect();
+        hint.style.left = (rect.left + rect.width / 2) + 'px';
+        hint.style.top = (rect.top - hint.offsetHeight - 12) + 'px';
+        // Recalculate after paint for accurate height
+        requestAnimationFrame(() => {
+            hint.style.top = (rect.top - hint.offsetHeight - 12) + 'px';
+        });
     };
 
     window.hideMentionHint = function() {
@@ -204,7 +212,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         const atBtn = document.querySelector('.fa-at');
         if(atBtn) {
-            atBtn.removeAttribute('style');
+            // Clear only the inline styles we added — do NOT use removeAttribute
+            // which would also remove any browser-computed styles.
+            atBtn.style.cssText = '';
         }
         const hint = document.getElementById('mention-tooltip');
         if(hint) hint.remove();
