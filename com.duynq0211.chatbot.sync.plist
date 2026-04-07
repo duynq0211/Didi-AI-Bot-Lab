@@ -8,12 +8,12 @@
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/lap14892-local/Library/CloudStorage/GoogleDrive-nguyenquangduy0211@gmail.com/My Drive/GOOGLE DRIVE/01. My Work/04. My Lab/01. Chatbot Assistant/github_sync.sh</string>
+        <string>/Users/lap16947/Lab/Didi Ai Bot/github_sync.sh</string>
     </array>
     
     <key>WatchPaths</key>
     <array>
-        <string>/Users/lap14892-local/Library/CloudStorage/GoogleDrive-nguyenquangduy0211@gmail.com/My Drive/GOOGLE DRIVE/01. My Work/04. My Lab/01. Chatbot Assistant</string>
+        <string>/Users/lap16947/Lab/Didi Ai Bot</string>
     </array>
     
     <key>StandardOutPath</key>

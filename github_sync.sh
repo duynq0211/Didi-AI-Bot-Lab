@@ -4,8 +4,8 @@
 # Nạp thêm biến môi trường (PATH) để Background job biết đường dẫn của git và SSH/Keychain
 export PATH=/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:$PATH
 
-# Di chuyển đến thư mục dự án
-cd "/Users/lap14892-local/Library/CloudStorage/GoogleDrive-nguyenquangduy0211@gmail.com/My Drive/GOOGLE DRIVE/01. My Work/04. My Lab/01. Chatbot Assistant" || exit 1
+# Di chuyên đen thư mục dự án
+cd "/Users/lap16947/Lab/Didi Ai Bot" || exit 1
 
 # Kiểm tra xem có bất kỳ thay đổi nào không
 if [[ -n $(git status -s) ]]; then
